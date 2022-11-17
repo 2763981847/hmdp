@@ -1,11 +1,18 @@
 package com.hmdp.utils;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 
+/**
+ * @author 27639
+ */
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class RedisData {
-    private LocalDateTime expireTime;
     private Object data;
+    private LocalDateTime expireTime;
 }
