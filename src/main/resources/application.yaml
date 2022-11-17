@@ -5,7 +5,7 @@ spring:
     name: hmdp
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://175.178.193.148/dzdp?useSSL=false&serverTimezone=UTC
+    url: jdbc:mysql://175.178.193.148:3306/dzdp?characterEncoding=utf-8&useSSL=false
     username: oreki
     password: fqj15823968817
   redis:
