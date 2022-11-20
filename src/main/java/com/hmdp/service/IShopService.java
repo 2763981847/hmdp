@@ -4,6 +4,8 @@ import com.hmdp.dto.Result;
 import com.hmdp.entity.Shop;
 import com.baomidou.mybatisplus.extension.service.IService;
 
+import java.util.concurrent.TimeUnit;
+
 /**
  * <p>
  *  服务类
@@ -26,4 +28,12 @@ public interface IShopService extends IService<Shop> {
      * @return 返回结果
      */
     Result updateShop(Shop shop);
+
+    /**
+     * 缓存商铺信息到redis(逻辑过期)
+     * @param id 商铺id
+     * @param expireTime 逻辑过期时间
+     * @param timeUnit timeUnit
+     */
+    void saveShop2Redis(long id , long expireTime, TimeUnit timeUnit);
 }

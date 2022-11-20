@@ -7,6 +7,7 @@ import cn.hutool.json.JSONUtil;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.Resource;
 import java.time.LocalDateTime;
 import java.util.concurrent.*;
 
@@ -18,13 +19,12 @@ import java.util.function.Supplier;
  */
 @Component
 public class CacheClient {
-    private final StringRedisTemplate stringRedisTemplate;
+    @Resource
+    private StringRedisTemplate stringRedisTemplate;
     private static final ExecutorService CACHE_REBUILD_EXECUTOR
-            = new ThreadPoolExecutor(10, 10, 0L, TimeUnit.MINUTES, new LinkedBlockingQueue<>());
+            = new ThreadPoolExecutor(10, 10, 0L, TimeUnit.MINUTES,
+            new LinkedBlockingQueue<>(), runnable -> new Thread(runnable, "缓存重建线程"));
 
-    public CacheClient(StringRedisTemplate stringRedisTemplate) {
-        this.stringRedisTemplate = stringRedisTemplate;
-    }
 
     /**
      * 将任意对象缓存至redis

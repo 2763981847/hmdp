@@ -62,4 +62,10 @@ public class ShopServiceImpl extends ServiceImpl<ShopMapper, Shop> implements IS
         stringRedisTemplate.delete(RedisConstants.CACHE_SHOP_KEY + id);
         return Result.ok();
     }
+
+    @Override
+    public void saveShop2Redis(long id, long expireTime, TimeUnit timeUnit) {
+        Shop shop = this.getById(id);
+        cacheClient.setWithLogicExpire(RedisConstants.CACHE_SHOP_KEY + id, shop, expireTime, timeUnit);
+    }
 }
