@@ -25,3 +25,12 @@ mybatis-plus:
 logging:
   level:
     com.hmdp: debug
+knife4j:
+  # 开启增强配置
+  enable: true
+  basic:
+    enable: true
+    # Basic认证用户名
+    username: oreki
+    # Basic认证密码
+    password: fqj15823968817

@@ -13,8 +13,10 @@ public enum ResultMsgEnum {
     //手机格式错误
     INVALID_PHONE_ERROR("手机号格式错误"),
     CODE_ERROR("验证码错误"),
-    SHOP_NOT_EXIST("店铺不存在");
-
+    SHOP_NOT_EXIST("店铺不存在"),
+    OUT_OF_TIME("不在秒杀时间内"),
+    UNDERSTOCK("库存不足");
+    
     private final String msg;
 
 }
