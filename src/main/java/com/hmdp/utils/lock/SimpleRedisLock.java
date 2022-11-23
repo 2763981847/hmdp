@@ -16,8 +16,8 @@ import java.util.concurrent.TimeUnit;
  */
 public class SimpleRedisLock implements ILock {
 
-    private StringRedisTemplate stringRedisTemplate;
-    private String key;
+    private final StringRedisTemplate stringRedisTemplate;
+    private final String key;
 
     public SimpleRedisLock(StringRedisTemplate stringRedisTemplate, String key) {
         this.stringRedisTemplate = stringRedisTemplate;

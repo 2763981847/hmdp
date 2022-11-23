@@ -6,7 +6,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
  * <p>
- *  服务类
+ * 服务类
  * </p>
  *
  * @author 虎哥
@@ -15,6 +15,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 public interface IVoucherOrderService extends IService<VoucherOrder> {
     /**
      * 抢购秒杀券功能
+     *
      * @param voucherId 秒杀券id
      * @return 生成的订单id
      */
@@ -22,8 +23,8 @@ public interface IVoucherOrderService extends IService<VoucherOrder> {
 
     /**
      * 尝试创建订单
-     * @param voucherId 秒杀券id
-     * @return 生成的订单id
+     *
+     * @param voucherOrder 订单信息
      */
-    Result tryCreateOrder(Long voucherId);
+    void tryCreateOrder(VoucherOrder voucherOrder);
 }
