@@ -1,0 +1,36 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: hmdp
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://${TENCENT_HOST}:3306/dzdp?characterEncoding=utf-8&useSSL=false
+    username: oreki
+    password: ${PASSWORD}
+  redis:
+    host: ${TENCENT_HOST}
+    port: 6379
+    password: ${PASSWORD}
+    lettuce:
+      pool:
+        max-active: 10
+        max-idle: 10
+        min-idle: 1
+        time-between-eviction-runs: 10s
+  jackson:
+    default-property-inclusion: non_null # JSON处理时忽略非空字段
+mybatis-plus:
+  type-aliases-package: com.hmdp.entity # 别名扫描包
+logging:
+  level:
+    com.hmdp: debug
+knife4j:
+  # 开启增强配置
+  enable: true
+  basic:
+    enable: true
+    # Basic认证用户名
+    username: oreki
+    # Basic认证密码
+    password: ${PASSWORD}
